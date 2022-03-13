@@ -72,12 +72,14 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #312e81;
+    background-color: #3730a3;
+    height: 100vh;
 }
 
 p {
-    padding: 0;
+    padding: 4px;
     margin: 0;
+    font-size: 16px;
 }
 
 header {
@@ -86,6 +88,7 @@ header {
     font-size: 48px;
     background-color: #c7d2fe;
     padding: 40px;
+    box-shadow: 5px 5px 5px 0px #312e81;
 }
 
 .grid-container {
@@ -95,11 +98,17 @@ header {
     padding: 2rem;
     gap: 1rem;
 }
+h3{
+    font-size: 22px;
+    margin: 0;
+    padding-bottom: 1rem;
+}
 .add-book,.book-item{
     display: flex;
     border-radius: 1rem;
     background-color: #c7d2fe;
     flex-direction: column;
+    box-shadow: 5px 5px 5px 0px #312e81;
 }
 .add-book{
     justify-content: center;
@@ -107,4 +116,10 @@ header {
 }
 .book-item {
     padding: 1rem;
+}
+.func-container{
+    display: flex;
+    flex: 1;
+    justify-content: end;
+    align-items: end;
 }
