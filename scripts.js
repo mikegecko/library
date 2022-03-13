@@ -22,6 +22,7 @@ function displayLibrary() {
     myLibrary.forEach(book => {
         const div = document.createElement('div');
         div.className = 'book-item';
+        div.id = 'book'+ myLibrary.indexOf(book);
         div.innerHTML = `${book.info()}
         <div class="func-container">
             <div class="remove-btn">
