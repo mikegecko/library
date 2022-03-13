@@ -132,6 +132,16 @@ h3{
 .book-item {
     padding: 1rem;
 }
+.book-item>button{
+    background-color: #f43f5e;
+    border-style: none;
+    border-radius: 1rem;
+    margin-top: 2rem;
+    padding: 4px;
+}
+.book-item>button:hover{
+    background-color: #e11d48;
+}
 .func-container{
     display: flex;
     flex: 1;
