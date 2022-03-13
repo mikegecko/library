@@ -88,7 +88,7 @@ header {
     border-radius: 1rem;
     text-align: start;
     font-size: 48px;
-    background-color: #c7d2fe;
+    background-color: #e0e7ff;
     padding: 40px;
     box-shadow: 5px 5px 5px 0px #312e81;
 }
@@ -117,14 +117,17 @@ h3{
 .add-book,.book-item{
     display: flex;
     border-radius: 1rem;
-    background-color: #c7d2fe;
+    background-color: #a5b4fc;
     flex-direction: column;
     box-shadow: 5px 5px 5px 0px #312e81;
 }
 .add-book{
     justify-content: center;
     align-items: center;
-    flex: 1;
+    flex: 1 1 1;
+}
+.add-book:hover{
+    background-color: #6366f1;
 }
 .book-item {
     padding: 1rem;
