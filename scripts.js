@@ -21,12 +21,13 @@ function displayLibrary() {
     //Loop through myLibrary[] and add book cards to html
     myLibrary.forEach(book => {
         const div = document.createElement('div');
+        const bookID = 'book'+ myLibrary.indexOf(book);
         div.className = 'book-item';
-        div.id = 'book'+ myLibrary.indexOf(book);
+        div.id = bookID
         div.innerHTML = `${book.info()}
         <div class="func-container">
-            <div class="remove-btn">
-                <span class="material-icons-outlined md-36">
+            <div id="${bookID}" class="remove-btn">
+                <span class="material-icons-outlined md-36 md-dark">
                     delete
                 </span>
             </div>
