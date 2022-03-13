@@ -83,6 +83,8 @@ p {
 }
 
 header {
+    display: flex;
+    justify-content: space-between;
     border-radius: 1rem;
     text-align: start;
     font-size: 48px;
@@ -90,7 +92,16 @@ header {
     padding: 40px;
     box-shadow: 5px 5px 5px 0px #312e81;
 }
-
+header>div{
+    display: flex;
+    gap: 1rem;
+}
+header :last-child{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
 .grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 250px));
@@ -113,6 +124,7 @@ h3{
 .add-book{
     justify-content: center;
     align-items: center;
+    flex: 1;
 }
 .book-item {
     padding: 1rem;
