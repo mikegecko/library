@@ -9,8 +9,8 @@ function Book(title, author, pages, read) {
 }
 Book.prototype.info = function () {
     let x = '';
-    this.read ? x = 'has read' : x = 'not yet read';
-    return (`<h3>${this.title}</h3> <p>by ${this.author}</p> <p>${this.pages} pages</p> <button>${x}</button>`);
+    this.read ? x = 'Has read' : x = 'Not yet read';
+    return (`<h3>${this.title}</h3> <p>by ${this.author}</p> <p>${this.pages} pages</p> <button id="btn${myLibrary.indexOf(this)}">${x}</button>`);
 }
 
 function addBookToLibrary() {
