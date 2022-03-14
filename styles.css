@@ -76,11 +76,11 @@
 body {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #3730a3;
+    background-color: #374151;
     height: 100vh;
-    display: grid;
+    /* display: grid;
     grid-template-columns: 1fr 3fr;
-    grid-template-rows: 180px 1fr;
+    grid-template-rows: 180px 1fr; */
 }
 
 p {
@@ -96,10 +96,10 @@ header {
     border-radius: 1rem;
     text-align: start;
     font-size: 48px;
-    background-color: #e0e7ff;
+    background-color: #f3f4f6;
     padding: 40px;
     box-shadow: 5px 5px 10px 0px #262626;
-    grid-column: 1 / 3;
+    /* grid-column: 1 / 3; */
 }
 
 header>div {
@@ -108,14 +108,13 @@ header>div {
     align-items: center;
 }
 
-header :last-child {
+.page-info{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-start;
+    margin-right: 2rem;
 }
-
-aside {}
 
 .grid-container {
     display: grid;
@@ -135,7 +134,7 @@ h3 {
 .book-item {
     display: flex;
     border-radius: 1rem;
-    background-color: #e0e7ff;
+    background-color: #e5e7eb;
     flex-direction: column;
     box-shadow: 5px 5px 10px 0px #262626;
 }
@@ -147,7 +146,7 @@ h3 {
 }
 
 .add-book:hover {
-    background-color: #6366f1;
+    background-color: #4b5563;
 }
 
 .book-item {
