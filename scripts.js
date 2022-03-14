@@ -64,7 +64,7 @@ function displayLibrary() {
 function readStatus(event) {
     let bookIndex = event.target.id
     bookIndex = bookIndex.replace(/\D/g, '');
-    if (myLibrary[bookIndex].readToggle()) {
+    if (myLibrary[bookIndex].readToggle()) { //Read toggle is undefined because myLibrary[bookIndex] does not give proper value when books are deleted out of order
         event.target.innerHTML = 'Read';
         event.target.classList.add('btn-read');
         event.target.classList.remove('btn-notread');
@@ -82,7 +82,14 @@ function removeBook(event) {
     myLibrary.splice(bookIndex, 1);
     const toRemove = document.getElementById('book' + bookIndex);
     toRemove.remove();
+    updateID();
     bookinfoDisplay();
+    
+}
+//This function updates the ID's when a book is deleted so the array does not get out of order
+//Possibly rewrite removeBook() and change ID system to use book names so i will be able to use array.find instead of indexing for selection
+function updateID(){
+
 }
 
 function overlayControl(event) {
