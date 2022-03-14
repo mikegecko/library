@@ -51,27 +51,37 @@
         </div>
     </div>
     <div id="form-overlay" class="overlay">
-        <div>
-            <h2>New Book</h3>
-                <form action="">
-                    <div>
-                        <div>
-                            <label for="">Book Title:</label>
-                            <input type="text" name="" id="">
+        <div class="form-container">
+            <div class="exit-container">
+                <span class="material-icons-outlined">
+                    close
+                </span>
+            </div>
+            <div class="form-header">
+                <h2>New Book</h3>
+                
+                    <form action="">
+                        <div class="form-itemcontainer">
+                            <div class="form-items">
+                                <label for="">Book Title:</label>
+                                <input type="text" name="" id="">
+                            </div>
+                            <div class="form-items">
+                                <label for="">Author:</label>
+                                <input type="text" name="" id="">
+                            </div>
+                            <div class="form-items">
+                                <label for="">Pages:</label>
+                                <input type="number" name="" id="">
+                            </div>
+                            <label for="">Completed:</label><input type="checkbox" name="" id="">
                         </div>
-                        <div>
-                            <label for="">Author:</label>
-                            <input type="text" name="" id="">
-                        </div>
-                        <div>
-                            <label for="">Pages:</label>
-                            <input type="number" name="" id="">
-                        </div>
-                        <label for="">Completed:</label><input type="checkbox" name="" id="">
-                    </div>
-                    <button class="overlay-btn" type="submit">Submit</button>
-                </form>
+                        <button class="form-btn" type="submit">Submit</button>
+                    </form>
+            </div>
+                
         </div>
+        
     </div>
 </body>
 

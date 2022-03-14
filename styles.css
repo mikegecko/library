@@ -128,7 +128,7 @@ header>div {
     justify-content: center;
 }
 
-.overlay-btn {
+.form-btn {
     margin-top: 1rem;
     font-size: 18px;
     border-style: none;
@@ -137,38 +137,46 @@ header>div {
     height: 35px;
     border-radius: 1rem;
 }
-
-.overlay-btn:hover {
+.form-btn:hover {
     background-color: #16a34a;
 }
 
-.overlay>div {
+.form-container {
     display: flex;
     flex-direction: column;
     width: 300px;
     height: 350px;
-    align-items: center;
     background-color: #f3f4f6;
     border-radius: 2rem;
     padding: 1rem;
+    justify-content: center;
 }
-
-.overlay>div>form {
+.exit-container{
+    /* display: flex; */
+}
+form{
     text-align: center;
 }
-
-.overlay>div>form>div {
-    text-align: center;
-    padding-bottom: 1rem;
+input{
+    padding: 2px;
 }
-
-.overlay>div>form>div>div {
+.form-header{
     display: flex;
     flex-direction: column;
-    padding: .5rem;
     align-items: center;
+    flex: 1;
+    
 }
-
+.form-itemcontainer{
+    text-align: center;
+}
+.form-items{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 10px
+}
 .page-info {
     display: flex;
     flex-direction: column;
