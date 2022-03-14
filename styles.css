@@ -196,7 +196,7 @@ input {
 .grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 250px));
-    grid-template-rows: repeat(auto-fit, minmax(150px, 250px));
+    grid-template-rows: repeat(auto-fit, 250px);
     padding: 2rem;
     gap: 1rem;
 }
@@ -214,6 +214,8 @@ h3 {
     background-color: #e5e7eb;
     flex-direction: column;
     box-shadow: 5px 5px 10px 0px #262626;
+    height: 250px;
+    width: 250px;
 }
 
 .add-book {

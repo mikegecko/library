@@ -2,10 +2,14 @@ const libraryGrid = document.getElementById('library');
 const addItem = document.getElementById('add-btn');
 const overlay = document.getElementById('form-overlay');
 const exitOverlay = document.getElementById('exit-btn');
+const submitItem = document.getElementById('submit-btn');
+const newBook = document.getElementById('book-form');
+submitItem.addEventListener('click', addBook);
 overlay.addEventListener('click', overlayControl);
 addItem.addEventListener('click', overlayControl);
 exitOverlay.addEventListener('click', overlayControl);
 let myLibrary = [];
+
 
 function Book(title, author, pages, read) {
     this.title = title;
@@ -23,31 +27,37 @@ Book.prototype.readToggle = function () {
     return (this.read);
 }
 
-function addBookToLibrary() {
-    //This will be called when user presses submit button on for with new book info
-}
+const book0 = new Book('The Hobbit', 'J.R.R. Tolkien', 295, false);
+myLibrary.push(book0);
+displayLibrary();
 
 function displayLibrary() {
     //Loop through myLibrary[] and add book cards to html
     myLibrary.forEach(book => {
         const div = document.createElement('div');
         const bookID = myLibrary.indexOf(book);
-        div.className = 'book-item';
-        div.id = 'book' + bookID;
-        div.innerHTML = `${book.info()}
-        <div class="func-container">
-            <div class="remove-btn">
-                <span id="del${bookID}" class="material-icons-outlined md-36 md-dark">
-                    delete
-                </span>
-            </div>
-        `;
-        libraryGrid.appendChild(div);
-        const btn = document.getElementById('btn' + bookID);
-        const remove_btn = document.getElementById('del' + bookID);
-        btn.addEventListener('click', readStatus);
-        remove_btn.addEventListener('click', removeBook);
-        book.read ? btn.classList.add('btn-read') : btn.classList.add('btn-notread');
+        if (document.getElementById(`book${bookID}`)) {
+            return;
+        } else {
+            div.className = 'book-item';
+            div.id = 'book' + bookID;
+            div.innerHTML = `${book.info()}
+            <div class="func-container">
+                <div class="remove-btn">
+                    <span id="del${bookID}" class="material-icons-outlined md-36 md-dark">
+                        delete
+                    </span>
+                </div>
+            `;
+            libraryGrid.appendChild(div);
+            const btn = document.getElementById('btn' + bookID);
+            const remove_btn = document.getElementById('del' + bookID);
+            btn.addEventListener('click', readStatus);
+            remove_btn.addEventListener('click', removeBook);
+            book.read ? btn.classList.add('btn-read') : btn.classList.add('btn-notread');
+            console.table(myLibrary);
+        }
+
     });
 }
 //Receives button event and toggles read property
@@ -74,21 +84,25 @@ function removeBook(event) {
 }
 
 function overlayControl(event) {
-    console.log(event);
     if (event.target.id === 'add-btn') {
         overlay.style.display = "flex";
     } else if (event.target.id === 'exit-btn' || event.target.id === 'form-overlay') {
         overlay.style.display = 'none';
     }
-
-
 }
 
-function addBook() {
-
+function addBook(event) {
+    let title = newBook[0].value;
+    let author = newBook[1].value;
+    let pages = newBook[2].value;
+    let isread = newBook[3].checked; //this is true || false
+    for (let index = 0; index < newBook.length; index++) {
+        const element = newBook[index];
+        element.value = '';
+        element.checked = false;
+    }
+    let book = new Book(title, author, pages, isread);
+    myLibrary.push(book);
+    displayLibrary();
+    overlay.style.display = 'none';
 }
-const book1 = new Book('The Hobbit', 'J.R.R. Tolkien', 295, false);
-myLibrary.push(book1);
-console.log(book1.info());
-console.table(myLibrary);
-displayLibrary();
