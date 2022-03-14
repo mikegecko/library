@@ -30,6 +30,7 @@
 .material-icons-outlined.md-48 {
     font-size: 48px;
 }
+
 .material-icons-outlined.md-128 {
     font-size: 128px;
 }
@@ -92,16 +93,19 @@ header {
     padding: 40px;
     box-shadow: 5px 5px 10px 0px #262626;
 }
-header>div{
+
+header>div {
     display: flex;
     gap: 1rem;
 }
-header :last-child{
+
+header :last-child {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
 }
+
 .grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 250px));
@@ -109,45 +113,56 @@ header :last-child{
     padding: 2rem;
     gap: 1rem;
 }
-h3{
+
+h3 {
     font-size: 22px;
     margin: 0;
     padding-bottom: 1rem;
 }
-.add-book,.book-item{
+
+.add-book,
+.book-item {
     display: flex;
     border-radius: 1rem;
     background-color: #e0e7ff;
     flex-direction: column;
     box-shadow: 5px 5px 10px 0px #262626;
 }
-.add-book{
+
+.add-book {
     justify-content: center;
     align-items: center;
     flex: 1 1 1;
 }
-.add-book:hover{
+
+.add-book:hover {
     background-color: #6366f1;
 }
+
 .book-item {
     padding: 1rem;
 }
-.btn-read{
- background-color: #22c55e;
+
+.btn-read {
+    background-color: #22c55e;
 }
-.btn-notread{
+
+.btn-notread {
     background-color: #f43f5e;
 }
-.book-item>button{
+
+.book-item>button {
     border-style: none;
     border-radius: 1rem;
     margin-top: 2rem;
     padding: 4px;
 }
-.book-item>button:hover{
+
+.book-item>button:hover {
     /* background-color: #e11d48; */
 }
-.func-container{
+
+.func-container {
     display: flex;
     flex: 1;
     justify-content: end;

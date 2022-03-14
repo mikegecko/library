@@ -42,7 +42,6 @@ function displayLibrary() {
         btn.addEventListener('click', readStatus);
         book.read ? btn.classList.add('btn-read') : btn.classList.add('btn-notread');
     });
-
 }
 //Receives button event and toggles read property
 function readStatus(event) {
@@ -57,7 +56,6 @@ function readStatus(event) {
         event.target.classList.add('btn-notread');
         event.target.classList.remove('btn-read');
     }
-
 }
 const book1 = new Book('The Hobbit', 'J.R.R. Tolkien', 295, false);
 myLibrary.push(book1);
