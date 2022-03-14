@@ -90,7 +90,7 @@ header {
     font-size: 48px;
     background-color: #e0e7ff;
     padding: 40px;
-    box-shadow: 5px 5px 5px 0px #312e81;
+    box-shadow: 5px 5px 10px 0px #262626;
 }
 header>div{
     display: flex;
@@ -117,9 +117,9 @@ h3{
 .add-book,.book-item{
     display: flex;
     border-radius: 1rem;
-    background-color: #a5b4fc;
+    background-color: #e0e7ff;
     flex-direction: column;
-    box-shadow: 5px 5px 5px 0px #312e81;
+    box-shadow: 5px 5px 10px 0px #262626;
 }
 .add-book{
     justify-content: center;
@@ -132,15 +132,20 @@ h3{
 .book-item {
     padding: 1rem;
 }
-.book-item>button{
+.btn-read{
+ background-color: #22c55e;
+}
+.btn-notread{
     background-color: #f43f5e;
+}
+.book-item>button{
     border-style: none;
     border-radius: 1rem;
     margin-top: 2rem;
     padding: 4px;
 }
 .book-item>button:hover{
-    background-color: #e11d48;
+    /* background-color: #e11d48; */
 }
 .func-container{
     display: flex;

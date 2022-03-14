@@ -10,12 +10,12 @@ function Book(title, author, pages, read) {
 }
 Book.prototype.info = function () {
     let x = '';
-    this.read ? x = 'Has read' : x = 'Not yet read';
+    this.read ? x = 'Read' : x = 'Not yet read';
     return (`<h3>${this.title}</h3> <p>by ${this.author}</p> <p>${this.pages} pages</p> <button id="btn${myLibrary.indexOf(this)}">${x}</button>`);
 }
 Book.prototype.readToggle = function () {
     this.read = !this.read;
-    return(this.read);
+    return (this.read);
 }
 
 function addBookToLibrary() {
@@ -39,16 +39,25 @@ function displayLibrary() {
         `;
         libraryGrid.appendChild(div);
         let btn = document.getElementById('btn' + myLibrary.indexOf(book));
-        btn.addEventListener('click',readStatus);
+        btn.addEventListener('click', readStatus);
+        book.read ? btn.classList.add('btn-read') : btn.classList.add('btn-notread');
     });
 
 }
-function readStatus(event){
+//Receives button event and toggles read property
+function readStatus(event) {
     let bookIndex = event.target.id
-    bookIndex = bookIndex.replace(/\D/g,'');
-    if(myLibrary[bookIndex].readToggle()) event.target.innerHTML = 'Has read';
-    else event.target.innerHTML = 'Not yet read';
-    
+    bookIndex = bookIndex.replace(/\D/g, '');
+    if (myLibrary[bookIndex].readToggle()) {
+        event.target.innerHTML = 'Read';
+        event.target.classList.add('btn-read');
+        event.target.classList.remove('btn-notread');
+    } else {
+        event.target.innerHTML = 'Not yet read';
+        event.target.classList.add('btn-notread');
+        event.target.classList.remove('btn-read');
+    }
+
 }
 const book1 = new Book('The Hobbit', 'J.R.R. Tolkien', 295, false);
 myLibrary.push(book1);
