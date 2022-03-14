@@ -1,5 +1,6 @@
 const libraryGrid = document.getElementById('library');
-document.get
+const addItem = document.getElementById('add-btn');
+addItem.addEventListener('click', addBook);
 let myLibrary = [];
 
 function Book(title, author, pages, read) {
@@ -68,8 +69,8 @@ function removeBook(event){
     toRemove.remove();
 }
 
-function addBook(){
-
+function addBook(event){
+    
 }
 const book1 = new Book('The Hobbit', 'J.R.R. Tolkien', 295, false);
 myLibrary.push(book1);
