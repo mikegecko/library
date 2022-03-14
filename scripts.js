@@ -79,7 +79,7 @@ function readStatus(event) {
 function removeBook(event) {
     let bookIndex = event.target.id
     bookIndex = bookIndex.replace(/\D/g, '');
-    myLibrary.splice(bookIndex , 1);
+    myLibrary.splice(bookIndex, 1);
     const toRemove = document.getElementById('book' + bookIndex);
     toRemove.remove();
     bookinfoDisplay();
@@ -109,7 +109,7 @@ function addBook(event) {
     overlay.style.display = 'none';
 }
 
-function bookinfoDisplay(){
+function bookinfoDisplay() {
     const planToRead = document.getElementById('booksunread');
     const booksRead = document.getElementById('booksread');
     const readPages = document.getElementById('pagesread');
@@ -117,11 +117,10 @@ function bookinfoDisplay(){
     let totalBooks = 0;
     let totalUnread = 0;
     myLibrary.forEach(book => {
-        if(book.read){
+        if (book.read) {
             totalBooks += 1;
             totalPages += parseInt(book.pages);
-        }
-        else{
+        } else {
             totalUnread += 1;
         }
     });
