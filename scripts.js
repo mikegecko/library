@@ -1,7 +1,9 @@
 const libraryGrid = document.getElementById('library');
 const addItem = document.getElementById('add-btn');
 const overlay = document.getElementById('form-overlay');
-addItem.addEventListener('click', addBook);
+const exitOverlay = document.getElementById('exit-btn');
+addItem.addEventListener('click', overlayControl);
+exitOverlay.addEventListener('click', overlayControl);
 let myLibrary = [];
 
 function Book(title, author, pages, read) {
@@ -69,9 +71,19 @@ function removeBook(event) {
     const toRemove = document.getElementById('book' + bookIndex);
     toRemove.remove();
 }
+function overlayControl(event){
+    console.log(event);
+    if(event.target.id === 'add-btn'){
+        overlay.style.display = "flex";
+    }
+    else if(event.target.id === 'exit-btn'){
+        overlay.style.display = 'none';
+    }
+    
 
-function addBook(event) {
-    overlay.style.display = "block";
+}
+function addBook() {
+    
 }
 const book1 = new Book('The Hobbit', 'J.R.R. Tolkien', 295, false);
 myLibrary.push(book1);
