@@ -1,5 +1,6 @@
 const libraryGrid = document.getElementById('library');
 const addItem = document.getElementById('add-btn');
+const overlay = document.getElementById('form-overlay');
 addItem.addEventListener('click', addBook);
 let myLibrary = [];
 
@@ -70,7 +71,7 @@ function removeBook(event){
 }
 
 function addBook(event){
-    
+    overlay.style.display = "block";
 }
 const book1 = new Book('The Hobbit', 'J.R.R. Tolkien', 295, false);
 myLibrary.push(book1);

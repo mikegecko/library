@@ -82,7 +82,9 @@ body {
     grid-template-columns: 1fr 3fr;
     grid-template-rows: 180px 1fr; */
 }
-
+h2{
+    margin: .3rem;
+}
 p {
     padding: 4px;
     margin: 0;
@@ -108,6 +110,56 @@ header>div {
     align-items: center;
 }
 
+.overlay{
+    position: fixed;
+    /* display: none; */
+    display: flex;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 5;
+    align-items: center;
+    justify-content: center;
+}
+.overlay-btn{
+    margin-top: 1rem;
+    font-size: 18px;
+    border-style: none;
+    background-color: #22c55e;
+    width: 120px;
+    height: 35px;
+    border-radius: 1rem;
+}
+.overlay-btn:hover{
+    background-color: #16a34a;
+}
+.overlay>div{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 350px;
+    align-items: center;
+    background-color: #f3f4f6;
+    border-radius: 2rem;
+    padding: 1rem;
+}
+.overlay>div>form{
+    text-align: center;
+}
+.overlay>div>form>div{
+    text-align: center;
+    padding-bottom: 1rem;
+}
+.overlay>div>form>div>div{
+    display: flex;
+    flex-direction: column;
+    padding: .5rem;
+    align-items: center;
+}
 .page-info{
     display: flex;
     flex-direction: column;
@@ -147,6 +199,7 @@ h3 {
 
 .add-book:hover {
     background-color: #4b5563;
+    cursor: pointer;
 }
 
 .book-item {
