@@ -38,8 +38,8 @@ function displayLibrary() {
             </div>
         `;
         libraryGrid.appendChild(div);
-        let btn = document.getElementById('btn' + bookID);
-        let remove_btn = document.getElementById('del'+ bookID);
+        const btn = document.getElementById('btn' + bookID);
+        const remove_btn = document.getElementById('del'+ bookID);
         btn.addEventListener('click', readStatus);
         remove_btn.addEventListener('click', removeBook);
         book.read ? btn.classList.add('btn-read') : btn.classList.add('btn-notread');
@@ -66,6 +66,10 @@ function removeBook(event){
     myLibrary.pop(bookIndex);
     const toRemove = document.getElementById('book'+bookIndex);
     toRemove.remove();
+}
+
+function addBook(){
+
 }
 const book1 = new Book('The Hobbit', 'J.R.R. Tolkien', 295, false);
 myLibrary.push(book1);
