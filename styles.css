@@ -156,6 +156,7 @@ h3 {
     border-radius: 1rem;
     margin-top: 2rem;
     padding: 4px;
+    cursor: pointer;
 }
 
 .book-item>button:hover {
@@ -167,4 +168,8 @@ h3 {
     flex: 1;
     justify-content: end;
     align-items: end;
+}
+.remove-btn>span:hover{
+    color: black;
+    cursor: pointer;
 }

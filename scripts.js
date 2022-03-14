@@ -26,20 +26,22 @@ function displayLibrary() {
     //Loop through myLibrary[] and add book cards to html
     myLibrary.forEach(book => {
         const div = document.createElement('div');
-        const bookID = 'book' + myLibrary.indexOf(book);
+        const bookID =myLibrary.indexOf(book);
         div.className = 'book-item';
-        div.id = bookID
+        div.id = 'book'+bookID;
         div.innerHTML = `${book.info()}
         <div class="func-container">
-            <div id="${bookID}" class="remove-btn">
-                <span class="material-icons-outlined md-36 md-dark">
+            <div class="remove-btn">
+                <span id="del${bookID}" class="material-icons-outlined md-36 md-dark">
                     delete
                 </span>
             </div>
         `;
         libraryGrid.appendChild(div);
-        let btn = document.getElementById('btn' + myLibrary.indexOf(book));
+        let btn = document.getElementById('btn' + bookID);
+        let remove_btn = document.getElementById('del'+ bookID);
         btn.addEventListener('click', readStatus);
+        remove_btn.addEventListener('click', removeBook);
         book.read ? btn.classList.add('btn-read') : btn.classList.add('btn-notread');
     });
 }
@@ -56,6 +58,14 @@ function readStatus(event) {
         event.target.classList.add('btn-notread');
         event.target.classList.remove('btn-read');
     }
+}
+
+function removeBook(event){
+    let bookIndex = event.target.id
+    bookIndex = bookIndex.replace(/\D/g, '');
+    myLibrary.pop(bookIndex);
+    const toRemove = document.getElementById('book'+bookIndex);
+    toRemove.remove();
 }
 const book1 = new Book('The Hobbit', 'J.R.R. Tolkien', 295, false);
 myLibrary.push(book1);
