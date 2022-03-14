@@ -30,9 +30,9 @@ Book.prototype.readToggle = function () {
 const book0 = new Book('The Hobbit', 'J.R.R. Tolkien', 295, false);
 myLibrary.push(book0);
 displayLibrary();
-
+//TODO: You can add empty items & duplicate books
 function displayLibrary() {
-    //Loop through myLibrary[] and add book cards to html
+    //Loop through myLibrary[] and add book cards to html - maybe add checking for duplicate books
     myLibrary.forEach(book => {
         const div = document.createElement('div');
         const bookID = myLibrary.indexOf(book);
@@ -57,8 +57,8 @@ function displayLibrary() {
             book.read ? btn.classList.add('btn-read') : btn.classList.add('btn-notread');
             console.table(myLibrary);
         }
-
     });
+    bookinfoDisplay();
 }
 //Receives button event and toggles read property
 function readStatus(event) {
@@ -73,14 +73,16 @@ function readStatus(event) {
         event.target.classList.add('btn-notread');
         event.target.classList.remove('btn-read');
     }
+    bookinfoDisplay();
 }
-
+//Make it so that when elements are removed they are assigned proper id's
 function removeBook(event) {
     let bookIndex = event.target.id
     bookIndex = bookIndex.replace(/\D/g, '');
-    myLibrary.pop(bookIndex);
+    myLibrary.splice(bookIndex , 1);
     const toRemove = document.getElementById('book' + bookIndex);
     toRemove.remove();
+    bookinfoDisplay();
 }
 
 function overlayControl(event) {
@@ -105,4 +107,26 @@ function addBook(event) {
     myLibrary.push(book);
     displayLibrary();
     overlay.style.display = 'none';
+}
+
+function bookinfoDisplay(){
+    const planToRead = document.getElementById('booksunread');
+    const booksRead = document.getElementById('booksread');
+    const readPages = document.getElementById('pagesread');
+    let totalPages = 0;
+    let totalBooks = 0;
+    let totalUnread = 0;
+    myLibrary.forEach(book => {
+        if(book.read){
+            totalBooks += 1;
+            totalPages += parseInt(book.pages);
+        }
+        else{
+            totalUnread += 1;
+        }
+    });
+    planToRead.innerText = totalUnread;
+    booksRead.innerText = totalBooks;
+    readPages.innerText = totalPages;
+    return;
 }
