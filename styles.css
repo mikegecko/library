@@ -137,6 +137,7 @@ header>div {
     height: 35px;
     border-radius: 1rem;
 }
+
 .form-btn:hover {
     background-color: #16a34a;
 }
@@ -151,32 +152,39 @@ header>div {
     padding: 1rem;
     justify-content: center;
 }
-.exit-container{
+
+.exit-container {
     /* display: flex; */
 }
-form{
+
+form {
     text-align: center;
 }
-input{
+
+input {
     padding: 2px;
 }
-.form-header{
+
+.form-header {
     display: flex;
     flex-direction: column;
     align-items: center;
     flex: 1;
-    
+
 }
-.form-itemcontainer{
+
+.form-itemcontainer {
     text-align: center;
 }
-.form-items{
+
+.form-items {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     margin: 10px
 }
+
 .page-info {
     display: flex;
     flex-direction: column;
