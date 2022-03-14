@@ -28,9 +28,9 @@ function displayLibrary() {
     //Loop through myLibrary[] and add book cards to html
     myLibrary.forEach(book => {
         const div = document.createElement('div');
-        const bookID =myLibrary.indexOf(book);
+        const bookID = myLibrary.indexOf(book);
         div.className = 'book-item';
-        div.id = 'book'+bookID;
+        div.id = 'book' + bookID;
         div.innerHTML = `${book.info()}
         <div class="func-container">
             <div class="remove-btn">
@@ -41,7 +41,7 @@ function displayLibrary() {
         `;
         libraryGrid.appendChild(div);
         const btn = document.getElementById('btn' + bookID);
-        const remove_btn = document.getElementById('del'+ bookID);
+        const remove_btn = document.getElementById('del' + bookID);
         btn.addEventListener('click', readStatus);
         remove_btn.addEventListener('click', removeBook);
         book.read ? btn.classList.add('btn-read') : btn.classList.add('btn-notread');
@@ -62,15 +62,15 @@ function readStatus(event) {
     }
 }
 
-function removeBook(event){
+function removeBook(event) {
     let bookIndex = event.target.id
     bookIndex = bookIndex.replace(/\D/g, '');
     myLibrary.pop(bookIndex);
-    const toRemove = document.getElementById('book'+bookIndex);
+    const toRemove = document.getElementById('book' + bookIndex);
     toRemove.remove();
 }
 
-function addBook(event){
+function addBook(event) {
     overlay.style.display = "block";
 }
 const book1 = new Book('The Hobbit', 'J.R.R. Tolkien', 295, false);
