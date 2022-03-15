@@ -78,7 +78,8 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #374151;
     height: 100vh;
-    /* display: grid;
+    display: flex;
+    flex-direction: column;    /* display: grid;
     grid-template-columns: 1fr 3fr;
     grid-template-rows: 180px 1fr; */
 }
@@ -199,6 +200,7 @@ input {
     grid-template-rows: repeat(auto-fit, 250px);
     padding: 2rem;
     gap: 1rem;
+    flex: 1;
 }
 
 h3 {
@@ -271,4 +273,10 @@ h3 {
 .remove-btn:hover {
     color: black;
     cursor: pointer;
+}
+footer{
+    background-color: #f3f4f6;
+    width: 100%;
+    text-align: center;
+    height: 1.5rem;
 }
