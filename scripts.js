@@ -30,7 +30,7 @@ Book.prototype.readToggle = function () {
 const book0 = new Book('The Hobbit', 'J.R.R. Tolkien', 295, false);
 myLibrary.push(book0);
 displayLibrary();
-//TODO: You can add empty items & duplicate books
+//TODO: Disallow empty items & duplicate books
 function displayLibrary() {
     //Loop through myLibrary[] and add book cards to html - maybe add checking for duplicate books
     myLibrary.forEach(book => {
@@ -80,11 +80,11 @@ function removeBook(event) {
     myLibrary.splice(bookIndex, 1);
     const toRemove = document.getElementById('book' + bookIndex);
     toRemove.remove();
-    updateID(bookIndex);
+    updateID();
     bookinfoDisplay();
 }
 //This function updates the ID's when a book is deleted so the array does not get out of order
-function updateID(index){
+function updateID(){
     const updateItems = document.getElementsByClassName('book-item');
     const updateRemovebtn = document.getElementsByClassName('remove-btn');
     const updateReadbtn = document.getElementsByClassName('rd-btn');
