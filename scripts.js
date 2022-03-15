@@ -20,7 +20,7 @@ function Book(title, author, pages, read) {
 Book.prototype.info = function () {
     let x = '';
     this.read ? x = 'Read' : x = 'Not yet read';
-    return (`<h3>${this.title}</h3> <p>by ${this.author}</p> <p>${this.pages} pages</p> <button id="btn${myLibrary.indexOf(this)}">${x}</button>`);
+    return (`<h3>${this.title}</h3> <p>by ${this.author}</p> <p>${this.pages} pages</p> <button id="btn${myLibrary.indexOf(this)}" class="rd-btn">${x}</button>`);
 }
 Book.prototype.readToggle = function () {
     this.read = !this.read;
@@ -43,8 +43,8 @@ function displayLibrary() {
             div.id = 'book' + bookID;
             div.innerHTML = `${book.info()}
             <div class="func-container">
-                <div class="remove-btn">
-                    <span id="del${bookID}" class="material-icons-outlined md-36 md-dark">
+                <div>
+                    <span id="del${bookID}" class="material-icons-outlined md-36 md-dark remove-btn">
                         delete
                     </span>
                 </div>
@@ -55,7 +55,6 @@ function displayLibrary() {
             btn.addEventListener('click', readStatus);
             remove_btn.addEventListener('click', removeBook);
             book.read ? btn.classList.add('btn-read') : btn.classList.add('btn-notread');
-            console.table(myLibrary);
         }
     });
     bookinfoDisplay();
@@ -64,7 +63,7 @@ function displayLibrary() {
 function readStatus(event) {
     let bookIndex = event.target.id
     bookIndex = bookIndex.replace(/\D/g, '');
-    if (myLibrary[bookIndex].readToggle()) { //Read toggle is undefined because myLibrary[bookIndex] does not give proper value when books are deleted out of order
+    if (myLibrary[bookIndex].readToggle()) { 
         event.target.innerHTML = 'Read';
         event.target.classList.add('btn-read');
         event.target.classList.remove('btn-notread');
@@ -75,21 +74,26 @@ function readStatus(event) {
     }
     bookinfoDisplay();
 }
-//Make it so that when elements are removed they are assigned proper id's
 function removeBook(event) {
     let bookIndex = event.target.id
     bookIndex = bookIndex.replace(/\D/g, '');
     myLibrary.splice(bookIndex, 1);
     const toRemove = document.getElementById('book' + bookIndex);
     toRemove.remove();
-    updateID();
+    updateID(bookIndex);
     bookinfoDisplay();
-    
 }
 //This function updates the ID's when a book is deleted so the array does not get out of order
-//Possibly rewrite removeBook() and change ID system to use book names so i will be able to use array.find instead of indexing for selection
-function updateID(){
-
+function updateID(index){
+    const updateItems = document.getElementsByClassName('book-item');
+    const updateRemovebtn = document.getElementsByClassName('remove-btn');
+    const updateReadbtn = document.getElementsByClassName('rd-btn');
+    for (let index = 0; index < updateItems.length; index++) {
+        const element = updateItems[index];
+        element.id = 'book' + index;
+        updateRemovebtn[index].id = 'del' + index;
+        updateReadbtn[index].id = 'btn' + index;
+    }
 }
 
 function overlayControl(event) {

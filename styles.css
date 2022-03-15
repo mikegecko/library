@@ -268,7 +268,7 @@ h3 {
     align-items: end;
 }
 
-.remove-btn>span:hover {
+.remove-btn:hover {
     color: black;
     cursor: pointer;
 }
