@@ -58,6 +58,7 @@ function displayLibrary() {
         }
     });
     bookinfoDisplay();
+    return;
 }
 //Receives button event and toggles read property
 function readStatus(event) {
@@ -73,6 +74,7 @@ function readStatus(event) {
         event.target.classList.remove('btn-read');
     }
     bookinfoDisplay();
+    return;
 }
 function removeBook(event) {
     let bookIndex = event.target.id
@@ -82,6 +84,7 @@ function removeBook(event) {
     toRemove.remove();
     updateID();
     bookinfoDisplay();
+    return;
 }
 //This function updates the ID's when a book is deleted so the array does not get out of order
 function updateID(){
@@ -94,6 +97,7 @@ function updateID(){
         updateRemovebtn[index].id = 'del' + index;
         updateReadbtn[index].id = 'btn' + index;
     }
+    return;
 }
 
 function overlayControl(event) {
@@ -102,6 +106,7 @@ function overlayControl(event) {
     } else if (event.target.id === 'exit-btn' || event.target.id === 'form-overlay') {
         overlay.style.display = 'none';
     }
+    return;
 }
 
 function addBook(event) {
@@ -118,6 +123,7 @@ function addBook(event) {
     myLibrary.push(book);
     displayLibrary();
     overlay.style.display = 'none';
+    return;
 }
 
 function bookinfoDisplay() {
