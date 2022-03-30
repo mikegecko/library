@@ -10,22 +10,44 @@ addItem.addEventListener('click', overlayControl);
 exitOverlay.addEventListener('click', overlayControl);
 let myLibrary = [];
 
+//TODO: Refactor to use classes instead of function prototypes
+class Book {
+    title;
+    author;
+    pages;
+    read;
+    constructor(title, author, pages, read) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+    }
+    info() {
+        let x = '';
+        this.read ? x = 'Read' : x = 'Not yet read';
+        return (`<h3>${this.title}</h3> <p>by ${this.author}</p> <p>${this.pages} pages</p> <button id="btn${myLibrary.indexOf(this)}" class="rd-btn">${x}</button>`);
+    }
+    readToggle(){
+        this.read = !this.read;
+        return (this.read);
+    }
+}
 
-function Book(title, author, pages, read) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-}
-Book.prototype.info = function () {
-    let x = '';
-    this.read ? x = 'Read' : x = 'Not yet read';
-    return (`<h3>${this.title}</h3> <p>by ${this.author}</p> <p>${this.pages} pages</p> <button id="btn${myLibrary.indexOf(this)}" class="rd-btn">${x}</button>`);
-}
-Book.prototype.readToggle = function () {
-    this.read = !this.read;
-    return (this.read);
-}
+// function Book(title, author, pages, read) {
+//     this.title = title;
+//     this.author = author;
+//     this.pages = pages;
+//     this.read = read;
+// }
+// Book.prototype.info = function () {
+//     let x = '';
+//     this.read ? x = 'Read' : x = 'Not yet read';
+//     return (`<h3>${this.title}</h3> <p>by ${this.author}</p> <p>${this.pages} pages</p> <button id="btn${myLibrary.indexOf(this)}" class="rd-btn">${x}</button>`);
+// }
+// Book.prototype.readToggle = function () {
+//     this.read = !this.read;
+//     return (this.read);
+// }
 
 const book0 = new Book('The Hobbit', 'J.R.R. Tolkien', 295, false);
 myLibrary.push(book0);
@@ -64,18 +86,19 @@ function displayLibrary() {
 function readStatus(event) {
     let bookIndex = event.target.id
     bookIndex = bookIndex.replace(/\D/g, '');
-    if (myLibrary[bookIndex].readToggle()) { 
-        event.target.innerHTML = 'Read';
+    if (myLibrary[bookIndex].readToggle()) {
+        event.target.innerText = 'Read';
         event.target.classList.add('btn-read');
         event.target.classList.remove('btn-notread');
     } else {
-        event.target.innerHTML = 'Not yet read';
+        event.target.innerText = 'Not yet read';
         event.target.classList.add('btn-notread');
         event.target.classList.remove('btn-read');
     }
     bookinfoDisplay();
     return;
 }
+
 function removeBook(event) {
     let bookIndex = event.target.id
     bookIndex = bookIndex.replace(/\D/g, '');
@@ -87,7 +110,7 @@ function removeBook(event) {
     return;
 }
 //This function updates the ID's when a book is deleted so the array does not get out of order
-function updateID(){
+function updateID() {
     const updateItems = document.getElementsByClassName('book-item');
     const updateRemovebtn = document.getElementsByClassName('remove-btn');
     const updateReadbtn = document.getElementsByClassName('rd-btn');
