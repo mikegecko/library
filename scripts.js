@@ -36,7 +36,7 @@ class Book {
 // function Book(title, author, pages, read) {
 //     this.title = title;
 //     this.author = author;
-//     this.pages = pages;g
+//     this.pages = pages;
 //     this.read = read;
 // }
 // Book.prototype.info = function () {
